@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=content, initial-scale=1.0">
+    <title>Kaggle 2025 NCAA三月疯狂篮球锦标赛预测</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="back-link">
+            <a href="../index.html">← 返回项目列表</a>
+        </nav>
+        
+        <article>
+            <h1>Kaggle 2025 NCAA三月疯狂篮球锦标赛预测</h1>
+            <p class="date">2025年2月10日</p>
+            
+            <h3>项目概述</h3>
+            <p>基于历史球队统计数据和当前赛季滚动表现指标，使用XGBoost梯度提升模型预测NCAA男子篮球锦标赛比赛结果，最终模型准确性在3004队中排行于34%百分位。</p>
+
+            <h3>数据来源</h3>
+            <ul>
+                <li><a href="https://www.kaggle.com/competitions/march-machine-learning-mania-2025/overview" target="_blank">数据来源</a></li>
+                <li>时间范围：2003-2024</li>
+                <li>包含所有常规赛和季后赛比分以及得分，篮板，抢断等比赛数据</li>
+            </ul>
+
+            <img src="../images/xgboost_tree.png" alt="XGBoost模型">
+
+            <h3>特征工程</h3>
+            <ul>
+                <li>将两队各项数据转化为差值，减少模型参数以及提升数据信息含量</li>
+                <li>计算球队统计指标的滚动平均值以量化球队状态</li>
+            </ul>
+
+            <h3>模型方法</h3>
+            <ul>
+                <li>模型: XGBoost</li>
+                <li>决策树类模型能良好模拟非线形关系，并且能自动筛选最有价值的特征</li>
+            </ul>
+
+            <h3>主要发现</h3>
+            <ol>
+                <li>常规赛表现与季后赛赛表现存在显著差异</li>
+                <li>模型在不同季后赛结构下表现一致</li>
+                <li>模型倾向于支持统计上的优势球队，因此面对球队爆冷情况预测准确率偏低</li>
+                <li>对当年季后赛的预测准确率达到Brier Score = 0.19，具有较高的准确率</li>
+            </ol>
+
+            <h3>未来改进方向</h3>
+            <ol>
+                <li>数据仅收集了球队层面的统计而并未精细到球员，颗粒度较高</li>
+                <li>决策树类模型相比LSTM和CNN等对时间层面的数据关系挖掘不足</li>
+            </ol>
+        </article>
+    </div>
+</body>
+</html>

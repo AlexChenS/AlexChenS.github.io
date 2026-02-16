@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++模拟购票软件</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="back-link">
+            <a href="../index.html">← 返回项目列表</a>
+        </nav>
+        
+        <article>
+            <h1>C++模拟购票软件</h1>
+            <p class="date">2025年6月25日</p>
+            
+            <h3>项目概述</h3>
+            <p>本项目是一个面向对象的活动预订管理系统，用于管理社区活动、场馆预订或课程注册等场景。系统采用C++开发，运用了继承、多态、组合等面向对象设计原则，并实现了数据持久化、事务处理和业务逻辑分层。</p>
+            <p>项目合作者：Cindy Chen</p>
+
+            <h3>核心功能:</h3>
+            <ul>
+                <li>用户分类管理: 支持居民、非居民、城市用户、组织用户等多种用户类型</li>
+                <li>活动预订: 完整的预订请求、确认、取消流程</li>
+                <li>等候名单机制: 活动满员时自动加入等候队列，取消时自动晋升</li>
+                <li>退款处理: 根据取消时间计算违约金，自动处理退款</li>
+                <li>预算管理: 管理员可追踪收入、退款和整体预算</li>
+            </ul>
+
+            <h3>设计模式:</h3>
+            <ul>
+                <li>单一职责原则 (SRP): 每个类专注单一功能(User管理用户信息，Event管理活动，PaymentProcessor处理支付)</li>
+                <li>开闭原则 (OCP): 通过继承扩展新用户类型，无需修改现有代码</li>
+                <li>里氏替换原则 (LSP): 所有User子类可互换使用</li>
+                <li>接口隔离原则 (ISP): 接口方法精简，避免强迫实现不需要的方法</li>
+                <li>依赖倒置原则 (DIP): 依赖抽象User类而非具体实现</li>
+                <li>数据持久化: 管理所有系统数据的加载和保存
+                    <ul>
+                        <li>维护用户、活动、预订请求、门票的向量容器</li>
+                        <li>提供查询接口: <code>findUser()</code>, <code>findEvent()</code>, <code>findRequest()</code></li>
+                        <li>实现数据序列化到文件系统</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>UML类图</h3>
+            <img src="../images/Final_UML.png" alt="UML图">
+
+            <h3>时序图</h3>
+            
+            <h4>预约流程图</h4>
+            <img src="../images/Make_Reservation_Sequence_Diagram.png" alt="预约流程时序图">
+
+            <h4>取消预约流程图</h4>
+            <img src="../images/Cancel_Reservation_wiith_Waitlist_Promotion_Sequence_Diagram.png" alt="取消预约流程时序图">
+
+            <h4>购票流程图</h4>
+            <img src="../images/Purchase_Ticket_Sequence_Diagram.png" alt="购票流程时序图">
+
+            <h3>项目收获</h3>
+            
+            <h4>技术能力:</h4>
+            <ul>
+                <li>深入理解面向对象编程范式</li>
+                <li>掌握UML建模和系统设计</li>
+                <li>实践设计模式和SOLID原则</li>
+                <li>C++内存管理和智能指针应用</li>
+            </ul>
+
+            <h4>软件工程:</h4>
+            <ul>
+                <li>需求分析和系统架构设计</li>
+                <li>类图和时序图建模</li>
+                <li>模块化设计和接口定义</li>
+                <li>代码组织和项目结构规划</li>
+            </ul>
+
+            <h4>问题解决:</h4>
+            <ul>
+                <li>复杂业务逻辑的抽象和实现</li>
+                <li>数据一致性保证</li>
+                <li>边界条件和异常处理</li>
+                <li>可扩展性和可维护性权衡</li>
+            </ul>
+        </article>
+    </div>
+</body>
+</html>
