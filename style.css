@@ -12,8 +12,20 @@ body {
     padding: 2rem 1rem;
 }
 
+p.spaced {
+    margin-bottom: 2rem;
+}
+
+img.spaced {
+    width:100%;
+    max-width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: block;
+}
+
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     background: white;
     padding: 3rem;
@@ -26,6 +38,11 @@ h1 {
     margin-bottom: 2rem;
     border-bottom: 2px solid #212121;
     padding-bottom: 1rem;
+}
+
+article ul, article ol {
+    margin-left: 2rem;  /* Change to 3rem or 4rem */
+    margin-bottom: 1rem;
 }
 
 .project {
@@ -50,3 +67,8 @@ h1 {
     color: #666;
     font-size: 0.9rem;
 }
+
+p.spaced {
+    margin-bottom: 1rem;
+}
+

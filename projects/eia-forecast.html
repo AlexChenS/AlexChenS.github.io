@@ -29,7 +29,7 @@
             </ul>
 
             <h3>数据概览：</h3>
-            <img src="../images/overall_zh.png" alt="数据概览">
+            <img src="../images/overall_zh.png" alt="数据概览" class="spaced">
 
             <h3>模型方法</h3>
             <ul>
@@ -41,7 +41,7 @@
             </ul>
 
             <h3>训练集参数</h3>
-            <img src="../images/model_summary.png" alt="模型参数">
+            <img src="../images/model_summary.png" alt="模型参数" class="spaced">
 
             <h3>主要发现</h3>
 
@@ -52,18 +52,16 @@
                 <li>相比简单的季节性基准模型，预测误差降低了35%</li>
                 <li>残差无明显自回归性</li>
             </ul>
-            <img src="../images/pred_zh.png" alt="预测图">
+            <img src="../images/pred_zh.png" alt="预测图" class="spaced">
 
             <h4>2. 季节性特征</h4>
             <ul>
                 <li>天然气储存呈现显著的52周年度周期</li>
-            </ul>
-            <img src="../images/ACF_ZH.png" alt="自相关图">
-            <img src="../images/PACF_ZH.png" alt="偏自相关图">
-            <ul>
                 <li>注入季(4-10月)和提取季(11-3月)的转换点可被准确预测</li>
                 <li>滞后26周(半年)的存储量与当前存储量呈-0.5的负相关</li>
             </ul>
+            <img src="../images/ACF_ZH.png" alt="自相关图", class="spaced">
+            <img src="../images/PACF_ZH.png" alt="偏自相关图", class="spaced">
 
             <h4>3. 模型架构</h4>
             <ul>
