@@ -1,0 +1,35 @@
+<html, lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome To My Personal Website</h1>
+    <img src="data_science.png" height="300">
+    <h2>About Me</h2>
+    <p>Hi, my name is Yuqi Chen. I am an aspiring data scientist and machine learning engineer in my fourth year studying data science at Northeastern University.</p>
+    <p>Quantitative data analysis has transformed the world we live in. The realization that the collection of data in all areas possible is conducive to basically all kinds of endeavors from those personal to institutional has shaped what products are made, how they are priced, how they are marketed etc. With my degree, I strive to understand and participate in an increasingly data-driven world.
+    My technical work spans supervised learning, time series forecasting, and causal inference — with recent projects including an XGBoost-based NCAA bracket prediction model, a SARIMA/Bayesian natural gas storage forecasting system, and a difference-in-differences pricing analysis. I am fluent in Python and proficient in the SQL and data engineering workflows common to tech pipelines.
+    </p>
+    <p>Outside of my professional endeavors, I enjoy weight training, hiking and skiing, trying different cuisines around the world and meeting new people. Recently as a hobby, I have been exploring ideas in sociology and anthropology, trying to understand the fundamental forces that shape our lived experience, which offers a nice complementary perspective from my usual quantitative view. I am fluent in Chinese and English and learning Japanese. 
+    </p>
+
+    <h3>My Contacts</h3>
+    <a href="chen.yuqi2@northeastern.edu">My Email</a>
+    <h2>My Projects</h2>
+    <button id="navigationButton">Projects page</button>
+    <script>
+        const navigationButton = document.getElementById('navigationButton')
+        navigationButton.addEventListener('click', function(){
+            window.location.href = 'projects.html';
+        }
+
+        )
+    </script>
+</body>
+
+
+
+</html>
