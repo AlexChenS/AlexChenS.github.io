@@ -58,6 +58,18 @@ article ol {
 /* =====================
    5. Components
    ===================== */
+.about-bio {
+    margin-bottom: 2rem;
+}
+
+.about-bio p {
+    margin-bottom: 1rem;
+}
+
+.about-bio p:last-child {
+    margin-bottom: 0;
+}
+
 .project {
     margin-bottom: 2rem;
 }
@@ -82,7 +94,28 @@ article ol {
 }
 
 /* =====================
-   6. Utilities
+   6. Language Toggle
+   ===================== */
+#lang-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--color-text);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    z-index: 100;
+}
+
+#lang-toggle:hover {
+    background: var(--color-accent);
+}
+
+/* =====================
+   7. Utilities
    ===================== */
 img {
     max-width: 100%;
