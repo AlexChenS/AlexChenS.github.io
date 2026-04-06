@@ -1,3 +1,18 @@
+/* =====================
+   1. Custom Properties
+   ===================== */
+:root {
+    --color-text: #212121;
+    --color-muted: #666;
+    --color-accent: #0066cc;
+    --color-border: #212121;
+    --color-bg: #fafafa;
+    --color-surface: white;
+}
+
+/* =====================
+   2. Reset / Base
+   ===================== */
 * {
     margin: 0;
     padding: 0;
@@ -7,48 +22,42 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
-    color: #212121;
-    background: #fafafa;
+    color: var(--color-text);
+    background: var(--color-bg);
     padding: 2rem 1rem;
 }
 
-p.spaced {
-    margin-bottom: 2rem;
-}
-
-img.spaced {
-    width:100%;
-    max-width: 100%;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    display: block;
-}
-
-img {
-    margin:0;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: white;
-    padding: 3rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
+/* =====================
+   3. Typography
+   ===================== */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    border-bottom: 2px solid #212121;
+    border-bottom: 2px solid var(--color-border);
     padding-bottom: 1rem;
 }
 
-article ul, article ol {
-    margin-left: 2rem;  /* Change to 3rem or 4rem */
+article ul,
+article ol {
+    margin-left: 2rem;
     margin-bottom: 1rem;
 }
 
+/* =====================
+   4. Layout
+   ===================== */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--color-surface);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* =====================
+   5. Components
+   ===================== */
 .project {
     margin-bottom: 2rem;
 }
@@ -59,20 +68,33 @@ article ul, article ol {
 }
 
 .project h2 a {
-    color: #212121;
+    color: var(--color-text);
     text-decoration: none;
 }
 
 .project h2 a:hover {
-    color: #0066cc;
+    color: var(--color-accent);
 }
 
 .date {
-    color: #666;
+    color: var(--color-muted);
     font-size: 0.9rem;
+}
+
+/* =====================
+   6. Utilities
+   ===================== */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+img.spaced {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 p.spaced {
     margin-bottom: 1rem;
 }
-
