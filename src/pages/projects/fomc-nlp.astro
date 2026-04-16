@@ -49,27 +49,23 @@ import { fomcNlp } from '../../i18n/translations';
     <h3 data-key="s_analysis">Results</h3>
     <p data-key="p_tuning">Hyperparameter tuning selected <strong>n_topics = 4</strong> with a coherence score of <strong>0.5288</strong> — the highest across all candidate values. The intertopic distance map (pyLDAvis) shows no overlap between topic circles, confirming the four topics are semantically distinct.</p>
 
-    {/* TODO: add intertopic distance map + topic count bar chart images here */}
+    <h4 data-key="s_topic_count">Topic Distribution (1993–2026)</h4>
+    <img src="/images/fomc_topic_count.png" alt="FOMC Topic Count Distribution" class="img-chart" />
 
     <h4 data-key="s_topic1">Topic 1 — Economic Growth</h4>
     <p data-key="p_topic1">Characterized by terms such as <em>productivity</em>, <em>profit</em>, <em>wealth</em>, and <em>inflationary</em>. Dominant in transcripts from <strong>1993–1995</strong> and <strong>2003</strong>, corresponding to periods of strong U.S. economic expansion.</p>
 
-    {/* TODO: add Topic 1 term frequency chart */}
-
     <h4 data-key="s_topic2">Topic 2 — Economic Downturn</h4>
     <p data-key="p_topic2">Characterized by terms such as <em>weakness</em>, <em>recovery</em>, and <em>easing</em>. The bigrams <em>equipment_software</em> and <em>fiscal_stimulus</em> rank highly, likely reflecting the 2000s dot-com bust. Dominant in transcripts from <strong>2001–2002</strong>.</p>
-
-    {/* TODO: add Topic 2 term frequency chart */}
 
     <h4 data-key="s_topic3">Topic 3 — Operational Procedures</h4>
     <p data-key="p_topic3">Composed of high-frequency procedural terms standard in Fed writing such as <em>arrangement</em> and <em>reciprocal_currency</em>. This topic never dominated any single year, suggesting it reflects boilerplate meeting language rather than a distinct economic regime. Reducing to n_topics = 3 lowered coherence and diluted the other topics — a potential area for future work with a BERT-based model.</p>
 
-    {/* TODO: add Topic 3 term frequency chart */}
-
     <h4 data-key="s_topic4">Topic 4 — Quantitative Easing</h4>
     <p data-key="p_topic4">Characterized by terms such as <em>accommodative</em>, <em>stable</em>, <em>balance_sheet</em>, and <em>maximize_employment</em>. Dominant across transcripts from <strong>2004–2026</strong> — predating the 2008 financial crisis and persisting through the Covid pandemic — suggesting accommodative policy was a deliberate, long-standing Fed strategy rather than a crisis response.</p>
 
-    {/* TODO: add Topic 4 term frequency chart */}
+    <h4 data-key="s_topic_trends">Dominant Topic by Year</h4>
+    <img src="/images/fomc_topic_trends.png" alt="FOMC Dominant Topic by Year" class="img-chart" />
 
     <h3 data-key="s_conclusions">Conclusions</h3>
     <p data-key="p_conclusions">FOMC meeting minutes contain word choice and language structure that allows recovery of historic economic regimes. The four LDA topics each correspond to a distinct mode of Fed communication. Notably, Quantitative Easing language dominated Fed transcripts from 2004 onward — well before the 2008 financial crisis — suggesting it reflects a deliberate policy posture rather than a reaction to crisis conditions.</p>
