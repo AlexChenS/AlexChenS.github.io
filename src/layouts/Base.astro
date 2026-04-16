@@ -1,0 +1,55 @@
+---
+import type { PageTranslations } from '../i18n/translations';
+import '../styles/global.css';
+
+interface Props {
+  translations: PageTranslations;
+  hasMathJax?: boolean;
+}
+
+const { translations, hasMathJax = false } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuqi Chen</title>
+  {hasMathJax && (
+    <>
+      <script is:inline src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script is:inline id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </>
+  )}
+</head>
+<body>
+  <button id="lang-toggle">中</button>
+  <div class="container">
+    <slot />
+  </div>
+  <script is:inline define:vars={{ translations }}>
+    function applyLanguage(lang, t) {
+      if (t.page_title) document.title = t.page_title;
+      document.querySelectorAll('[data-key]').forEach(function (el) {
+        const key = el.dataset.key;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-cn' : 'en';
+      const btn = document.getElementById('lang-toggle');
+      if (btn) btn.textContent = lang === 'zh' ? 'EN' : '中';
+      if (window.MathJax && window.MathJax.typesetPromise) MathJax.typesetPromise();
+    }
+
+    const saved = localStorage.getItem('lang') || 'en';
+    applyLanguage(saved, translations[saved]);
+
+    document.getElementById('lang-toggle').addEventListener('click', function () {
+      const current = localStorage.getItem('lang') || 'en';
+      const next = current === 'zh' ? 'en' : 'zh';
+      localStorage.setItem('lang', next);
+      applyLanguage(next, translations[next]);
+    });
+  </script>
+</body>
+</html>

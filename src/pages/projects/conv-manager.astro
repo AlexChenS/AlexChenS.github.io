@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import { convManager } from '../../i18n/translations';
+---
+
+<Base translations={convManager}>
+  <nav class="back-link">
+    <a href="/" data-key="back">← Back to Projects</a>
+  </nav>
+
+  <article>
+    <h1 data-key="h1">C++ Event Reservation System</h1>
+    <p class="date" data-key="date">June 25, 2025</p>
+
+    <h3 data-key="s_overview">Overview</h3>
+    <p data-key="p_overview">An object-oriented activity booking management system for community events, venue reservations, or course registrations. Built in C++, applying OOP principles including inheritance, polymorphism, and composition, with data persistence, transaction processing, and layered business logic.</p>
+    <p class="spaced" data-key="p_collab">Collaborator: Cindy Chen</p>
+
+    <h3 data-key="s_features">Core Features:</h3>
+    <ul>
+      <li data-key="li_feat1">User classification: supports resident, non-resident, city, and organizational user types</li>
+      <li data-key="li_feat2">Event booking: complete request, confirmation, and cancellation workflow</li>
+      <li data-key="li_feat3">Waitlist mechanism: automatically joins a waitlist when full; promoted automatically on cancellation</li>
+      <li data-key="li_feat4">Refund processing: calculates penalties based on cancellation timing, automatically handles refunds</li>
+      <li data-key="li_feat5">Budget management: administrators can track revenue, refunds, and overall budget</li>
+    </ul>
+
+    <h3 data-key="s_patterns">Design Patterns:</h3>
+    <ul>
+      <li data-key="li_pat1">Single Responsibility Principle (SRP): each class focuses on one concern (User manages user info, Event manages activities, PaymentProcessor handles payments)</li>
+      <li data-key="li_pat2">Open/Closed Principle (OCP): new user types are added via inheritance without modifying existing code</li>
+      <li data-key="li_pat3">Liskov Substitution Principle (LSP): all User subclasses are interchangeable</li>
+      <li data-key="li_pat4">Interface Segregation Principle (ISP): interfaces are minimal, avoiding forced implementation of unneeded methods</li>
+      <li data-key="li_pat5">Dependency Inversion Principle (DIP): depends on the abstract User class rather than concrete implementations</li>
+      <li data-key="li_pat6">Data Persistence: manages loading and saving of all system data
+        <ul>
+          <li>Maintains vector containers for users, events, booking requests, and tickets</li>
+          <li>Query interfaces: <code>findUser()</code>, <code>findEvent()</code>, <code>findRequest()</code></li>
+          <li>Serializes data to the filesystem</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3 data-key="s_uml">UML Class Diagram</h3>
+    <img src="/images/Final_UML.png" alt="UML Diagram" class="img-diagram" />
+
+    <h3 data-key="s_seq">Sequence Diagrams</h3>
+
+    <h4 data-key="s_seq1">Reservation Flow</h4>
+    <img src="/images/Make_Reservation_Sequence_Diagram.png" alt="Reservation Sequence Diagram" class="img-diagram" />
+
+    <h4 data-key="s_seq2">Cancellation with Waitlist Promotion</h4>
+    <img src="/images/Cancel_Reservation_wiith_Waitlist_Promotion_Sequence_Diagram.png" alt="Cancellation Sequence Diagram" class="img-diagram" />
+
+    <h4 data-key="s_seq3">Ticket Purchase Flow</h4>
+    <img src="/images/Purchase_Ticket_Sequence_Diagram.png" alt="Ticket Purchase Sequence Diagram" class="img-diagram" />
+
+    <h3 data-key="s_takeaways">Key Takeaways</h3>
+
+    <h4 data-key="s_tech">Technical Skills:</h4>
+    <ul>
+      <li data-key="li_tech1">Deep understanding of object-oriented programming paradigms</li>
+      <li data-key="li_tech2">UML modeling and system design</li>
+      <li data-key="li_tech3">Design patterns and SOLID principles in practice</li>
+      <li data-key="li_tech4">C++ memory management and smart pointers</li>
+    </ul>
+
+    <h4 data-key="s_eng">Software Engineering:</h4>
+    <ul>
+      <li data-key="li_eng1">Requirements analysis and system architecture design</li>
+      <li data-key="li_eng2">Class diagram and sequence diagram modeling</li>
+      <li data-key="li_eng3">Modular design and interface definition</li>
+      <li data-key="li_eng4">Code organization and project structure planning</li>
+    </ul>
+
+    <h4 data-key="s_prob">Problem Solving:</h4>
+    <ul>
+      <li data-key="li_prob1">Abstracting and implementing complex business logic</li>
+      <li data-key="li_prob2">Ensuring data consistency</li>
+      <li data-key="li_prob3">Boundary conditions and exception handling</li>
+      <li data-key="li_prob4">Balancing extensibility and maintainability</li>
+    </ul>
+  </article>
+</Base>

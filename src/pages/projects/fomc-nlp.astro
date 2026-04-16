@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import { fomcNlp } from '../../i18n/translations';
+---
+
+<Base translations={fomcNlp}>
+  <nav class="back-link">
+    <a href="/" data-key="back">← Back to Projects</a>
+  </nav>
+
+  <article>
+    <h1 data-key="h1">Federal Reserve FOMC Transcripts — MongoDB NLP Analysis</h1>
+    <p class="date" data-key="date">April 14, 2026</p>
+    <p class="spaced" data-key="p_collab">Collaborator: Christian Limb</p>
+
+    <h3 data-key="s_overview">Overview</h3>
+    <p data-key="p_overview">A data engineering and NLP pipeline that scrapes all 272 Federal Open Market Committee (FOMC) meeting transcripts from the Federal Reserve website (1993–2026), stores them in MongoDB, and applies Latent Dirichlet Allocation (LDA) topic modeling to track shifts in Fed economic language over time. The model identifies four distinct topics corresponding to historic economic regimes.</p>
+
+    <h3 data-key="s_data">Data</h3>
+    <ul>
+      <li data-key="li_data1">Source: Federal Reserve website (federalreserve.gov)</li>
+      <li data-key="li_data2">272 FOMC meeting transcripts spanning 1993–2026</li>
+      <li data-key="li_data3">The FOMC meets 8 times per year to set U.S. monetary policy</li>
+    </ul>
+
+    <h3 data-key="s_pipeline">Data Pipeline</h3>
+
+    <h4 data-key="s_step1">Step 1 — Data Collection</h4>
+    <p data-key="p_step1">Meeting transcripts are scraped from the Federal Reserve website using a lazy insertion approach, so previously scraped documents are unaffected by network instability or HTML irregularities in later files.</p>
+
+    <h4 data-key="s_step2">Step 2 — MongoDB Storage</h4>
+    <p data-key="p_step2">Raw transcripts are stored as-is in a <code>fomc_minutes_raw</code> collection, preserving the original corpus. This makes restarting preprocessing from scratch trivial without re-scraping.</p>
+
+    <h4 data-key="s_step3">Step 3 — Text Preprocessing</h4>
+    <ul>
+      <li data-key="li_step3_1">Remove standard English stopwords (nltk) and Fed-specific jargon (e.g. "committee", "chairman", "adjourn")</li>
+      <li data-key="li_step3_2">Keep only nouns, adjectives, and verbs</li>
+      <li data-key="li_step3_3">Lemmatization: ran → run, meeting → meet</li>
+      <li data-key="li_step3_4">Filter words shorter than 4 characters</li>
+      <li data-key="li_step3_5">Filter words appearing in fewer than 5 documents or more than 70% of documents (Gensim <code>filter_extremes</code>)</li>
+    </ul>
+
+    <h4 data-key="s_step4">Step 4 — Bigram Creation</h4>
+    <p data-key="p_step4">Bigrams appearing at least 5 times are joined as single tokens (e.g. "high_inflation", "fiscal_stimulus"). This preserves economic context that would be lost if the words were counted independently. MongoDB's text index enables fast lookup of bigram frequencies across the corpus via a custom <code>get_key_word_count()</code> function.</p>
+
+    <h4 data-key="s_step5">Step 5 — LDA Model Fitting</h4>
+    <p data-key="p_step5">An LDA model is fit on the bigram-enriched corpus using Gensim's <code>LDAModel</code>, integrated with MongoDB through pymongo. The number of topics <em>n</em> is tuned by maximizing the coherence score across candidate values.</p>
+
+    <h3 data-key="s_analysis">Results</h3>
+    <p data-key="p_tuning">Hyperparameter tuning selected <strong>n_topics = 4</strong> with a coherence score of <strong>0.5288</strong> — the highest across all candidate values. The intertopic distance map (pyLDAvis) shows no overlap between topic circles, confirming the four topics are semantically distinct.</p>
+
+    {/* TODO: add intertopic distance map + topic count bar chart images here */}
+
+    <h4 data-key="s_topic1">Topic 1 — Economic Growth</h4>
+    <p data-key="p_topic1">Characterized by terms such as <em>productivity</em>, <em>profit</em>, <em>wealth</em>, and <em>inflationary</em>. Dominant in transcripts from <strong>1993–1995</strong> and <strong>2003</strong>, corresponding to periods of strong U.S. economic expansion.</p>
+
+    {/* TODO: add Topic 1 term frequency chart */}
+
+    <h4 data-key="s_topic2">Topic 2 — Economic Downturn</h4>
+    <p data-key="p_topic2">Characterized by terms such as <em>weakness</em>, <em>recovery</em>, and <em>easing</em>. The bigrams <em>equipment_software</em> and <em>fiscal_stimulus</em> rank highly, likely reflecting the 2000s dot-com bust. Dominant in transcripts from <strong>2001–2002</strong>.</p>
+
+    {/* TODO: add Topic 2 term frequency chart */}
+
+    <h4 data-key="s_topic3">Topic 3 — Operational Procedures</h4>
+    <p data-key="p_topic3">Composed of high-frequency procedural terms standard in Fed writing such as <em>arrangement</em> and <em>reciprocal_currency</em>. This topic never dominated any single year, suggesting it reflects boilerplate meeting language rather than a distinct economic regime. Reducing to n_topics = 3 lowered coherence and diluted the other topics — a potential area for future work with a BERT-based model.</p>
+
+    {/* TODO: add Topic 3 term frequency chart */}
+
+    <h4 data-key="s_topic4">Topic 4 — Quantitative Easing</h4>
+    <p data-key="p_topic4">Characterized by terms such as <em>accommodative</em>, <em>stable</em>, <em>balance_sheet</em>, and <em>maximize_employment</em>. Dominant across transcripts from <strong>2004–2026</strong> — predating the 2008 financial crisis and persisting through the Covid pandemic — suggesting accommodative policy was a deliberate, long-standing Fed strategy rather than a crisis response.</p>
+
+    {/* TODO: add Topic 4 term frequency chart */}
+
+    <h3 data-key="s_conclusions">Conclusions</h3>
+    <p data-key="p_conclusions">FOMC meeting minutes contain word choice and language structure that allows recovery of historic economic regimes. The four LDA topics each correspond to a distinct mode of Fed communication. Notably, Quantitative Easing language dominated Fed transcripts from 2004 onward — well before the 2008 financial crisis — suggesting it reflects a deliberate policy posture rather than a reaction to crisis conditions.</p>
+
+    <h3 data-key="s_future">Future Improvements</h3>
+    <ol>
+      <li data-key="li_fut1">Replace LDA with a BERT-based topic model to leverage contextual token representations and reduce procedural noise (Topic 3)</li>
+      <li data-key="li_fut2">Incorporate external economic indicators (e.g. CPI, unemployment rate) to validate topic-to-regime alignment</li>
+      <li data-key="li_fut3">Extend pipeline to FOMC press conference transcripts for finer temporal resolution</li>
+    </ol>
+  </article>
+</Base>

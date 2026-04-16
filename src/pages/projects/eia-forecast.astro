@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import { eiaForecast } from '../../i18n/translations';
+---
+
+<Base translations={eiaForecast} hasMathJax>
+  <nav class="back-link">
+    <a href="/" data-key="back">← Back to Projects</a>
+  </nav>
+
+  <article>
+    <h1 data-key="h1">EIA Natural Gas Storage Forecast Analysis (Ongoing)</h1>
+    <p class="date" data-key="date">February 14, 2026</p>
+
+    <h3 data-key="s_overview">Overview</h3>
+    <p data-key="p_overview">Analysis and forecasting of weekly U.S. EIA natural gas storage data using SARIMA time series models.</p>
+
+    <h3 data-key="s_data">Data Sources</h3>
+    <ul>
+      <li data-key="li_data1">EIA Weekly Underground Natural Gas Storage Report</li>
+      <li data-key="li_data2">Time range: 2008–2026</li>
+      <li data-key="li_data3">Updated every Thursday at 10:30 AM EST</li>
+    </ul>
+
+    <h3 data-key="s_overview_chart">Data Overview:</h3>
+    <img src="/images/data_exp.png" alt="Data Exploration" class="img-chart" />
+
+    <h3 data-key="s_method">Model Methodology</h3>
+    <ul>
+      <li data-key="li_method1">SARIMA(p,d,q)(P,D,Q,s) — Seasonal AutoRegressive Integrated Moving Average</li>
+      <li data-key="li_method2">Weekly pattern: current value influenced by the past 5 weeks (\(p = 5\))</li>
+      <li data-key="li_method3">Weekly error pattern: current error influenced by errors from the past 5 weeks (\(q = 5\))</li>
+      <li data-key="li_method4">Annual pattern: current value influenced by the same period last year (\(P = 2\)), with annual differencing (\(D=1\))</li>
+      <li data-key="li_method5">Annual error pattern: current error influenced by errors from the same period in the past two years (\(Q = 2\))</li>
+    </ul>
+
+    <h3 data-key="s_params">Training Set Parameters</h3>
+    <img src="/images/SARIMA_(5, 0, 5)_S(2, 1, 2, 52).png" alt="SARIMA(5,0,5)(2,1,2,52) Model Parameters" class="img-chart" />
+
+    <h3 data-key="s_likelihood">Data Likelihood</h3>
+    <img src="/images/data_likelihood.png" alt="Data Likelihood" class="img-chart" />
+
+    <h3 data-key="s_findings">Key Findings</h3>
+
+    <h4 data-key="s_findings1">1. Forecast Performance</h4>
+    <ul>
+      <li data-key="li_f1_1">SARIMA(5,0,5)(2,1,2,52) achieved an RMSE of 44.85 on a 104-week test set</li>
+      <li data-key="li_f1_2">Mean Absolute Percentage Error (MAPE) of 1.8%, indicating high forecast accuracy</li>
+      <li data-key="li_f1_3">35% reduction in forecast error compared to a simple seasonal baseline</li>
+      <li data-key="li_f1_4">Residuals show no significant autocorrelation</li>
+    </ul>
+    <img src="/images/bayesian_pred.png" alt="Bayesian Forecast" class="img-chart" />
+
+    <h4 data-key="s_findings2">2. Seasonal Characteristics</h4>
+    <ul>
+      <li data-key="li_f2_1">Natural gas storage shows a strong 52-week annual cycle</li>
+      <li data-key="li_f2_2">Injection season (Apr–Oct) and withdrawal season (Nov–Mar) turning points are accurately predicted</li>
+      <li data-key="li_f2_3">Storage lagged 26 weeks shows a −0.5 negative correlation with current storage</li>
+    </ul>
+    <img src="/images/autocorr.png" alt="Autocorrelation" class="img-chart" />
+
+    <h4 data-key="s_findings3">3. Model Architecture</h4>
+    <ul>
+      <li data-key="li_f3_1">Despite an ADF test p-value below 0.05, seasonal differencing substantially improves forecast accuracy in practice</li>
+      <li data-key="li_f3_2">Higher-order AR/MA components (p,q &gt; 2) lead to overfitting and worse test set performance</li>
+    </ul>
+
+    <h3 data-key="s_value">Applications</h3>
+    <ul>
+      <li data-key="li_v1"><strong>Energy Trading</strong>: 2–4 week storage forecasts can support natural gas futures trading strategies</li>
+      <li data-key="li_v2"><strong>Risk Management</strong>: Prediction intervals provide uncertainty quantification to aid supply chain decisions</li>
+      <li data-key="li_v3"><strong>Market Analysis</strong>: Identify abnormal storage levels and signal supply-demand imbalances</li>
+    </ul>
+
+    <h3 data-key="s_future">Future Improvements</h3>
+    <ol>
+      <li data-key="li_fut1">Incorporate exogenous variables: heating demand from temperature, natural gas prices, production levels, etc.</li>
+      <li data-key="li_fut2">Ensemble methods: hybrid SARIMA + XGBoost/LSTM model</li>
+    </ol>
+  </article>
+</Base>

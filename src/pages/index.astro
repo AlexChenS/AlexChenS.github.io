@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { index } from '../i18n/translations';
+---
+
+<Base translations={index}>
+  <h1 data-key="about_heading">About Me</h1>
+  <img src="/images/data_science.png" alt="bio-pic" class="img-portrait" />
+  <div class="about-bio" data-key="about_bio">
+    <p>Hi, my name is Yuqi Chen. I am an aspiring data scientist and machine learning engineer studying data science at Northeastern University.</p>
+    <p>Quantitative data analysis has transformed the world we live in. The realization that the collection of data in all areas is conducive to all kinds of endeavors — from those personal to institutional — has shaped what products are made, how they are priced, how they are marketed, and more. With my degree, I strive to understand and participate in an increasingly data-driven world.</p>
+    <p>My technical work spans supervised learning, time series forecasting — with recent projects including an XGBoost-based NCAA bracket prediction model, a SARIMA/Bayesian natural gas storage forecasting system, a NoSQL analyzer of Federal Reserve Meeting Transcripts. I am fluent in Python and proficient in SQL and the data engineering workflows common to tech pipelines.</p>
+    <p>Outside of my professional endeavors, I enjoy weight training, hiking and skiing, reading, and meeting new people. Tales of Hulan River by Xiao Hong is my favorite book. I am fluent in Chinese and English and learning Japanese.</p>
+  </div>
+
+  <h1 data-key="projects_heading">Personal Projects</h1>
+
+  <div class="project">
+    <h2><a href="/projects/fomc-nlp" data-key="proj4_title">Federal Reserve FOMC Transcripts — MongoDB NLP Analysis</a></h2>
+    <p class="date" data-key="proj4_date">April 14, 2026</p>
+  </div>
+
+  <div class="project">
+    <h2><a href="/projects/eia-forecast" data-key="proj1_title">EIA Natural Gas Storage Forecast (Ongoing)</a></h2>
+    <p class="date" data-key="proj1_date">February 14, 2026</p>
+  </div>
+
+  <div class="project">
+    <h2><a href="/projects/conv-manager" data-key="proj2_title">C++ Event Reservation System</a></h2>
+    <p class="date" data-key="proj2_date">June 25, 2025</p>
+  </div>
+
+  <div class="project">
+    <h2><a href="/projects/march-madness" data-key="proj3_title">Kaggle 2025 NCAA Basketball Tournament Prediction</a></h2>
+    <p class="date" data-key="proj3_date">February 10, 2025</p>
+  </div>
+</Base>

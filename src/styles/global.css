@@ -37,6 +37,22 @@ h1 {
     padding-bottom: 1rem;
 }
 
+article h3 {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+article h4 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+article p {
+    margin-bottom: 1rem;
+}
+
 article ul,
 article ol {
     margin-left: 2rem;
@@ -93,6 +109,20 @@ article ol {
     font-size: 0.9rem;
 }
 
+.back-link {
+    margin-bottom: 2rem;
+}
+
+.back-link a {
+    color: var(--color-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.back-link a:hover {
+    color: var(--color-accent);
+}
+
 /* =====================
    6. Language Toggle
    ===================== */
@@ -122,8 +152,26 @@ img {
     display: block;
 }
 
-img.spaced {
+/* Bio / profile photo */
+img.img-portrait {
     width: 100%;
+    max-width: 280px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Data charts and plots — cap width so small images aren't upscaled */
+img.img-chart {
+    width: 100%;
+    max-width: 720px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Technical diagrams that need full width for readability */
+img.img-diagram {
+    width: 100%;
+    max-width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
