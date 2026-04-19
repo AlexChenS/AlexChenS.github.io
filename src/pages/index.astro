@@ -7,10 +7,13 @@ import { index } from '../i18n/translations';
   <h1 data-key="about_heading">About Me</h1>
   <img src="/images/data_science.png" alt="bio-pic" class="img-portrait" />
   <div class="about-bio" data-key="about_bio">
-    <p>Hi, my name is Yuqi Chen. I am an aspiring data scientist and machine learning engineer studying data science at Northeastern University.</p>
+    <p>Hi, my name is <h1>
+  <span class="lang-en">Yuqi Chen</span>
+  <span class="lang-zh">陈谕齐</span></p>
+    <p> I am an aspiring data scientist and machine learning engineer studying data science at Northeastern University.</p>
     <p>Quantitative data analysis has transformed the world we live in. The realization that the collection of data in all areas is conducive to all kinds of endeavors — from those personal to institutional — has shaped what products are made, how they are priced, how they are marketed, and more. With my degree, I strive to understand and participate in an increasingly data-driven world.</p>
     <p>My technical work spans supervised learning, time series forecasting — with recent projects including an XGBoost-based NCAA bracket prediction model, a SARIMA/Bayesian natural gas storage forecasting system, a NoSQL analyzer of Federal Reserve Meeting Transcripts. I am fluent in Python and proficient in SQL and the data engineering workflows common to tech pipelines.</p>
-    <p>Outside of my professional endeavors, I enjoy weight training, hiking and skiing, reading, and meeting new people. Tales of Hulan River by Xiao Hong is my favorite book. I am fluent in Chinese and English and learning Japanese.</p>
+    <p>Outside of my professional endeavors, I enjoy weight training, hiking and skiing, reading, and meeting new people. Tales of Hulan River by Xiao Hong is my favorite book. I am fluent in Chinese and English.</p>
   </div>
 
   <h1 data-key="projects_heading">Personal Projects</h1>
@@ -18,20 +21,24 @@ import { index } from '../i18n/translations';
   <div class="project">
     <h2><a href="/projects/fomc-nlp" data-key="proj4_title">Federal Reserve FOMC Transcripts — MongoDB NLP Analysis</a></h2>
     <p class="date" data-key="proj4_date">April 14, 2026</p>
+    <p>The Federal Reserve's meeting transcripts are a window into the global economy. This project automatically condenses and organizes all 272 FOMC meeting minutes spanning 30+ years, surfacing four recurring economic themes and tracking which one dominated each year. The result can find application as a feature for trading algorithms, or as a quantitative tool for macro-economic research offices.</p>
   </div>
 
   <div class="project">
     <h2><a href="/projects/eia-forecast" data-key="proj1_title">EIA Natural Gas Storage Forecast (Ongoing)</a></h2>
     <p class="date" data-key="proj1_date">February 14, 2026</p>
+    <p>Natural gas is the single largest source for electricity generation in many countries. Correctly predicting its storage levels is a crucial task to utility operators, commodity traders, and many more. We built a SARIMA model and a Bayesian regression model to not only make predictions but also allow users to quantify how uncertain the predicted value is.</p>
   </div>
 
   <div class="project">
     <h2><a href="/projects/conv-manager" data-key="proj2_title">C++ Event Reservation System</a></h2>
     <p class="date" data-key="proj2_date">June 25, 2025</p>
+    <p>A fully functional booking platform which handles registrations, waitlists, cancellations, and automatic refund calculations. Potential use cases include venue event booking such as concerts and sports games.</p>
   </div>
 
   <div class="project">
     <h2><a href="/projects/march-madness" data-key="proj3_title">Kaggle 2025 NCAA Basketball Tournament Prediction</a></h2>
     <p class="date" data-key="proj3_date">February 10, 2025</p>
+    <p>A model that predicts college basketball playoff tournament results. Provides quantitative analysis of team strength, schedule difficulty, offensive and defensive efficiencies and etc. which can be used in modern sports which have become increasingly data-driven and analytical.</p>
   </div>
 </Base>

@@ -13,7 +13,14 @@ import { eiaForecast } from '../../i18n/translations';
     <p class="date" data-key="date">February 14, 2026</p>
 
     <h3 data-key="s_overview">Overview</h3>
-    <p data-key="p_overview">Analysis and forecasting of weekly U.S. EIA natural gas storage data using SARIMA time series models.</p>
+    <p data-key="p_overview">Natural Gas is sometimes called the "cleanest" fossil fuel, especially com-
+      pared to coal and gasoline. To fill heating demand in the winter, energy oper-
+      ators look to fill natural gas reserves, using derivatives and other financial in-
+      struments to hedge prices, making it one of the most liquid and widely-traded
+      commodity. A model that predicts natural gas storage levels would be use-
+      ful to government stakeholders, energy researchers, commodity traders, and
+      many more. We build a SARIMA model and a Bayesian Regression model to predict natural gas storage levels.
+    </p>
 
     <h3 data-key="s_data">Data Sources</h3>
     <ul>
@@ -24,6 +31,7 @@ import { eiaForecast } from '../../i18n/translations';
 
     <h3 data-key="s_overview_chart">Data Overview:</h3>
     <img src="/images/data_exp.png" alt="Data Exploration" class="img-chart" />
+    <p>The data exhibits a highly cyclic pattern of alternating positive autocorrelation and negative autocorrelation, with a half-life of 1 year. Even data from 2 cycles ago (2 years) still show high positive autocorrelation. This informs the degree of our seasonal component, which should be 52 weeks. The yearly mean hovers between 2800 and 3200, with no large deviations. After differencing the raw values with lag 52 data, we have largely removed the confounding periodic pattern influencing current values. The differenced data is shown in orange.</p> 
 
     <h3 data-key="s_method">Model Methodology</h3>
     <ul>
@@ -35,19 +43,28 @@ import { eiaForecast } from '../../i18n/translations';
     </ul>
 
     <h3 data-key="s_params">Training Set Parameters</h3>
-    <img src="/images/SARIMA_(5, 0, 5)_S(2, 1, 2, 52).png" alt="SARIMA(5,0,5)(2,1,2,52) Model Parameters" class="img-chart" />
+    <img src="/images/SARIMA_pred.png" alt="SARIMA(5,0,5)(2,1,2,52) Model Parameters" class="img-chart" />
 
-    <h3 data-key="s_likelihood">Data Likelihood</h3>
+    <h3 data-key="s_likelihood">Data Likelihood </h3>
     <img src="/images/data_likelihood.png" alt="Data Likelihood" class="img-chart" />
+    <p>For the sake of simplicity, we choes the normal distribution to be our data likelihood, meaning that we assume a each value comes from a normal distribution. The large mean of data usefully offsets the draw back of getting negative values from the normal distribution, meaning it is very unlikely to get negative valued samples despite it being theorectically possible. This allows our model to stay simple and also adhere to real world non-negative data values. A mathematically matched prior that gives exact, closed-form answers — no simulation or approximation needed, so it's fast and auditable</p>
 
+
+    <h3> Bayesian Model Parameters</h3>
+    <p>Unlike a standard forecast that gives a single number, this Bayesian model produces a full probability distribution over future storage levels. It uses the past five weeks of natural gas prices and storage readings as inputs, and the model's uncertainty automatically widens when market conditions are unusual — giving decision-makers a quantified confidence interval rather than a false sense of precision.</p>
     <h3 data-key="s_findings">Key Findings</h3>
 
     <h4 data-key="s_findings1">1. Forecast Performance</h4>
     <ul>
-      <li data-key="li_f1_1">SARIMA(5,0,5)(2,1,2,52) achieved an RMSE of 44.85 on a 104-week test set</li>
+      <li data-key="li_f1_1">SARIMA(5,0,5)(2,1,2,52) achieved an RMSE of 157 on a 104-week test set</li>
       <li data-key="li_f1_2">Mean Absolute Percentage Error (MAPE) of 1.8%, indicating high forecast accuracy</li>
       <li data-key="li_f1_3">35% reduction in forecast error compared to a simple seasonal baseline</li>
       <li data-key="li_f1_4">Residuals show no significant autocorrelation</li>
+      <li data-key="li_f1_5">SARIMA model prediction</li>
+    </ul>
+    <img src="/images/SARIMA_pred.png" alt="SARIMA Forecast" class="img-chart" />
+    <ul>
+      <li data-key="li_f1_1">Bayesian model prediction</li>
     </ul>
     <img src="/images/bayesian_pred.png" alt="Bayesian Forecast" class="img-chart" />
 
@@ -63,6 +80,7 @@ import { eiaForecast } from '../../i18n/translations';
     <ul>
       <li data-key="li_f3_1">Despite an ADF test p-value below 0.05, seasonal differencing substantially improves forecast accuracy in practice</li>
       <li data-key="li_f3_2">Higher-order AR/MA components (p,q &gt; 2) lead to overfitting and worse test set performance</li>
+      <li data-key="li_f3_3">Bayesian model proved surprisingly accurate in the short term with added benefits of explainability. It shows the range where the true mean will lie with 95% probability. The confidence interval is shown by the band in the plot.</li>
     </ul>
 
     <h3 data-key="s_value">Applications</h3>

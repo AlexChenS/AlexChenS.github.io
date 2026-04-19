@@ -104,6 +104,13 @@ article ol {
     color: var(--color-accent);
 }
 
+.project p:not(.date) {
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
 .date {
     color: var(--color-muted);
     font-size: 0.9rem;
@@ -139,6 +146,9 @@ article ol {
     font-size: 0.85rem;
     z-index: 100;
 }
+
+html[lang="zh-cn"] .lang-en { display: none; }
+html[lang="en"] .lang-zh { display: none; }
 
 #lang-toggle:hover {
     background: var(--color-accent);
