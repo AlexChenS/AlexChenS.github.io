@@ -11,7 +11,7 @@ export const index: PageTranslations = {
 <p>Outside of my professional endeavors, I enjoy weight training, hiking and skiing, reading, and meeting new people. Tales of Hulan River by Xiao Hong is my favorite book. I am fluent in Chinese and English.</p>`,
     projects_heading: "Personal Projects",
     proj4_pitch: "The Federal Reserve's meeting transcripts are a window into the global economy. This project automatically condenses and organizes all 272 FOMC meeting minutes spanning 30+ years, surfacing four recurring economic themes and tracking which one dominated each year. The result can find application as a feature for trading algorithms, or as a quantitative tool for macro-economic research offices.",
-    proj1_pitch: "Natural gas is the single largest source for electricity generation in many countries. Correctly predicting its storage levels is a crucial task to utility operators, commodity traders, and many more. We built a SARIMA model and a Bayesian regression model to not only make predictions but also allow users to quantify how uncertain the predicted value is.",
+    proj1_pitch: "Natural gas is the single largest source for electricity generation in many countries. Correctly predicting its storage levels is a crucial task to utility operators, commodity trading, and many more. We built a SARIMA model and a Bayesian regression model to not only make predictions but also allow users to quantify how uncertain the predicted value is.",
     proj2_pitch: "A fully functional booking platform which handles registrations, waitlists, cancellations, and automatic refund calculations. Potential use cases include venue event booking such as concerts and sports games.",
     proj3_pitch: "A model that predicts college basketball playoff tournament results. Provides quantitative analysis of team strength, schedule difficulty, offensive and defensive efficiencies and etc. which can be used in modern sports which have become increasingly data-driven and analytical.",
     proj4_title: "Federal Reserve FOMC Transcripts — MongoDB NLP Analysis",
@@ -28,8 +28,8 @@ export const index: PageTranslations = {
     about_heading: "关于我",
     about_bio: `<p>是东北大学数据科学专业学生，致力于成为数据科学家与机器学习工程师。</p>
 <p>量化数据分析正在深刻改变我们所处的世界。数据在各个领域的广泛采集，推动着产品开发、定价策略、市场营销等各类活动的演进——无论是个人行为还是机构决策。凭借我的专业背景，我希望深入理解并积极参与这个日益数据驱动的时代。</p>
-<p>我的技术专长涵盖监督学习与时间序列预测，近期项目包括基于 XGBoost 的 NCAA 篮球锦标赛预测模型、SARIMA/贝叶斯天然气储存预测系统，以及联邦储备会议记录的 NoSQL 分析器。我精通 Python，并熟练掌握 SQL 及科技行业常见的数据工程工作流。</p>
-<p>工作之外，我热爱力量训练、徒步与滑雪，喜欢阅读和结交新朋友。萧红的《呼兰河传》是我最喜爱的书。我中英双语流利。</p>`,
+<p>我的技术专长涵盖监督学习与时间序列预测，近期项目包括基于 XGBoost 的 NCAA 篮球锦标赛预测模型、SARIMA/贝叶斯天然气储存预测系统，以及联邦储备会议记录的自动分析器。我精通 Python，并熟练掌握 SQL 及科技行业常见的数据工程工作流。</p>
+<p>工作之外，我热爱力量训练、徒步与滑雪，喜欢阅读和结交新朋友。萧红的《呼兰河传》是我最喜爱的书。中英双语流利。</p>`,
     projects_heading: "个人项目",
     proj4_pitch: "美联储会议记录是洞察全球经济的窗口。本项目自动整理了272份跨越30余年的FOMC会议纪要，提炼出四个反复出现的经济主题，并追踪每年的主导主题。成果可用作交易算法的输入特征，或宏观经济研究机构的量化分析工具。",
     proj1_pitch: "天然气是许多国家最大的单一发电来源。准确预测其储存水平对公用事业运营商、大宗商品交易员等至关重要。我们构建了SARIMA模型和贝叶斯回归模型，不仅提供预测值，还能让用户量化预测的不确定性。",
